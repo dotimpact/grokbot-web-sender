@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Grok Bot Web Sender 設定</title>
+  <style>
+    body { font: 14px system-ui, sans-serif; margin: 16px; max-width: 520px; }
+    label { display: block; margin-top: 12px; }
+    input { width: 100%; box-sizing: border-box; padding: 4px; font: inherit; }
+    #status.ok { color: #1a7f37; }
+    #status.err { color: #cf222e; }
+  </style>
+</head>
+<body>
+  <h1>Grok Bot Web Sender 設定</h1>
+  <form id="form">
+    <label>Webhook URL
+      <input id="webhookUrl" type="url" required placeholder="https://example.invalid/webhook" autocomplete="off">
+    </label>
+    <label>キー
+      <input id="key" type="password" required autocomplete="off">
+    </label>
+    <p><button type="submit">保存</button> <span id="status"></span></p>
+  </form>
+  <p>保存時に Webhook のオリジンへのアクセス許可を求めます。値は chrome.storage.local にのみ保存されます。</p>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

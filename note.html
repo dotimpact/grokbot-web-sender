@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Grok Bot に送る</title>
+  <style>
+    body { font: 13px system-ui, sans-serif; margin: 12px; }
+    .meta { color: #555; word-break: break-all; margin-bottom: 6px; }
+    blockquote { margin: 0 0 8px; padding: 6px 8px; background: #f3f3f3; max-height: 90px; overflow: auto; white-space: pre-wrap; }
+    blockquote:empty { display: none; }
+    textarea { width: 100%; box-sizing: border-box; height: 110px; font: inherit; }
+    .row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    #status.ok { color: #1a7f37; }
+    #status.err { color: #cf222e; }
+  </style>
+</head>
+<body>
+  <div class="meta" id="meta"></div>
+  <blockquote id="preview"></blockquote>
+  <textarea id="note" placeholder="メモ（Cmd/Ctrl+Enter で送信）" autofocus></textarea>
+  <div class="row">
+    <button id="send">送信</button>
+    <span id="status"></span>
+  </div>
+  <script type="module" src="note.js"></script>
+</body>
+</html>
