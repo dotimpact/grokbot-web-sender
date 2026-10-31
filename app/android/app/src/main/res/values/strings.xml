@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Web Sender</string>
+    <string name="title_activity_main">Web Sender</string>
+    <string name="package_name">jp.dotimpact.websender</string>
+    <string name="custom_url_scheme">jp.dotimpact.websender</string>
+</resources>

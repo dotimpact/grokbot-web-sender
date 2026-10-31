@@ -1,0 +1,13 @@
+{
+  "name": "@websender/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./ui/note.js": "./ui/note.js",
+    "./ui/settings.js": "./ui/settings.js",
+    "./ui/ui.css": "./ui/ui.css"
+  },
+  "scripts": { "test": "node --test test/*.test.js" }
+}

@@ -1,4 +1,4 @@
-import { postCapture } from './lib.js';
+import { send, fetchTransport } from '@websender/core';
 
 const MENU_ID = 'send-to-grokbot';
 
@@ -59,7 +59,7 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg?.type !== 'send') return false;
   (async () => {
     const config = await chrome.storage.local.get(['webhookUrl', 'key']);
-    const result = await postCapture(config, msg.capture, msg.note);
+    const result = await send(config, msg.capture, msg.note, { client: 'chrome-ext', transport: fetchTransport });
     await setBadge(result.ok);
     sendResponse(result);
   })();

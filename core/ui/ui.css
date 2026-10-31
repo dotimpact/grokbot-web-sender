@@ -1,0 +1,10 @@
+body { font: 13px system-ui, sans-serif; margin: 12px; }
+.meta { color: #555; word-break: break-all; margin-bottom: 6px; }
+.preview { margin: 0 0 8px; padding: 6px 8px; background: #f3f3f3; max-height: 90px; overflow: auto; white-space: pre-wrap; }
+.preview:empty { display: none; }
+.note { width: 100%; box-sizing: border-box; height: 110px; font: inherit; }
+.row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.settings label { display: block; margin-top: 12px; }
+.settings input { width: 100%; box-sizing: border-box; padding: 4px; font: inherit; }
+.status.ok { color: #1a7f37; }
+.status.err { color: #cf222e; }

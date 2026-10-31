@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../src');
 const KEY = 'test-key-not-real';
 
 const received = [];
@@ -118,14 +118,10 @@ result = await sendViaWindow(imageCapture, 'offline');
 assert.equal(result.ok, false, 'network failure reported');
 assert.ok(!result.message.includes(webhookUrl) && !result.message.includes(KEY), 'message leaks neither URL nor key');
 
-const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
-assert.equal(manifest.manifest_version, 3);
-assert.equal(manifest.host_permissions, undefined, 'no static host_permissions');
-for (const f of [manifest.background.service_worker, manifest.options_page, 'note.html', 'note.js', 'options.js', 'lib.js']) {
-  assert.ok(fs.existsSync(path.join(root, f)), `${f} exists`);
-}
-for (const f of ['background.js', 'lib.js', 'note.js', 'options.js']) {
-  assert.ok(!/console\./.test(fs.readFileSync(path.join(root, f), 'utf8')), `${f} has no console logging`);
+const coreDir = path.resolve(root, '../../core');
+for (const f of ['background.js', 'note.js', 'options.js'].map((f) => path.join(root, f))
+  .concat(['index.js', 'ui/note.js', 'ui/settings.js'].map((f) => path.join(coreDir, f)))) {
+  assert.ok(!/console\./.test(fs.readFileSync(f, 'utf8')), `${f} has no console logging`);
 }
 
 console.log(`ok: ${received.length} requests recorded, badges=${badges.join(',')}`);

@@ -1,5 +1,13 @@
 {
   "private": true,
   "type": "module",
-  "scripts": { "test": "node test/e2e.mjs" }
+  "workspaces": ["core", "extension", "app"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "npm run build:ext && npm run build:app",
+    "build:ext": "npm run build -w extension",
+    "build:app": "npm run build -w app",
+    "sync:android": "npm run sync -w app",
+    "test": "npm test -w core && npm run build:ext && npm test -w extension"
+  }
 }

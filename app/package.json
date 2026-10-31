@@ -1,0 +1,19 @@
+{
+  "name": "@websender/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "sync": "node build.mjs && cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@websender/core": "*"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0",
+    "esbuild": "^0.28.2"
+  }
+}
